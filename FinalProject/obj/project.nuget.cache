@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OMqewvc7hQuwvrOrOQ9Y5GjqxBTQ1s04fgU6TtfYOn2CJjsbSZW6+c/W/PWTSiV9C9vgKBsqGlTMefSTm/8yGg==",
+  "dgSpecHash": "z963tQOPcXLqHEXRNgWguAaQeg51hkZ7t3Xsw7+qSaYKdMrKUEOSJ2gMoCn40fs4MAqBZPaqHq7oCWuo6wTfJw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kagan\\source\\repos\\FinalProject\\FinalProject.csproj",
+  "projectFilePath": "C:\\Users\\Kagan\\Documents\\GitHub\\FinalProjectWArvatoBootcamp\\FinalProject\\FinalProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kagan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Kagan\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

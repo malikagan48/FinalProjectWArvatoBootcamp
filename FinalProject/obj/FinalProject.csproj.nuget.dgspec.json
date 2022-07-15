@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kagan\\source\\repos\\FinalProject\\FinalProject.csproj": {}
+    "C:\\Users\\Kagan\\Documents\\GitHub\\FinalProjectWArvatoBootcamp\\FinalProject\\FinalProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kagan\\source\\repos\\FinalProject\\FinalProject.csproj": {
+    "C:\\Users\\Kagan\\Documents\\GitHub\\FinalProjectWArvatoBootcamp\\FinalProject\\FinalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kagan\\source\\repos\\FinalProject\\FinalProject.csproj",
+        "projectUniqueName": "C:\\Users\\Kagan\\Documents\\GitHub\\FinalProjectWArvatoBootcamp\\FinalProject\\FinalProject.csproj",
         "projectName": "FinalProject",
-        "projectPath": "C:\\Users\\Kagan\\source\\repos\\FinalProject\\FinalProject.csproj",
+        "projectPath": "C:\\Users\\Kagan\\Documents\\GitHub\\FinalProjectWArvatoBootcamp\\FinalProject\\FinalProject.csproj",
         "packagesPath": "C:\\Users\\Kagan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kagan\\source\\repos\\FinalProject\\obj\\",
+        "outputPath": "C:\\Users\\Kagan\\Documents\\GitHub\\FinalProjectWArvatoBootcamp\\FinalProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

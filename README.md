@@ -1,7 +1,7 @@
 # FinalProjectWArvatoBootcamp
- Final Project with Arvato Bootcamp crew.
+ 
 ![](https://github.com/malikagan48/FinalProjectWArvatoBootcamp/blob/main/FinalProject/bin/Release/net6.0/Images/11.png)
-
+Final Project with Arvato Bootcamp crew.
 <hr>
 
 Arvato Supply Chain Solutions ve Patika.dev iş birliği ile yapılan **Arvato .Net Bootcamp** 'inin bitirme projesini geliştirmeye çalıştım. Proje içerisinde belirtilen teknolojileri kullanmaya çalıştım. 
@@ -53,12 +53,6 @@ Arvato Supply Chain Solutions ve Patika.dev iş birliği ile yapılan **Arvato .
     <td><img src="https://img.shields.io/badge/-MVC-5C2D91?logo=.net"/></td>
     <td><img src="https://img.shields.io/badge/-EntityFramework-5C2D91?style=flat&logo=.net&logoColor=white"/></td>  
     <td><img src="https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white"/></td>
-  </tr>
-  <tr>
-   
- 
-    <td><img src="https://img.shields.io/badge/-IdentityCore-5C2D91?style=flat&logo=.net&logoColor=white"/></td>
-    <td><img src="https://img.shields.io/badge/-Docker-61DAFB?logo=docker"/></td> 
   </tr>
   <tr>
     <td><img src="https://img.shields.io/badge/-Github-black?style=flat&logo=github"/></td>

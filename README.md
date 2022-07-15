@@ -27,6 +27,7 @@ Arvato Supply Chain Solutions ve Patika.dev iş birliği ile yapılan **Arvato .
 
 <hr>
 **Projemizin ön yüzü bu şekilde gelmektedir.**
+
 ![](https://github.com/malikagan48/FinalProjectWArvatoBootcamp/blob/main/FinalProject/bin/Release/net6.0/Images/14.PNG)
 
  ## :computer: Projenin Kurulumu
@@ -37,7 +38,9 @@ Arvato Supply Chain Solutions ve Patika.dev iş birliği ile yapılan **Arvato .
   "ConnectionStrings": {
     "DefaultConnection": "User ID=(DatabaseUserBuraya(postgres));Password=(ŞifreBuraya);Host=(HostIp veya 'localhost');Port=(PortNumarası(5432));Database=MiniCommerceDb;Integrated Security=true;Pooling=true"
   },
-    Başlangıç projemizi **FinalProject.API** olarak belirledikten sonra package manager console’umuzda varsayılan olarak belirliyor ve **update-database** komutunu giriyoruz. Bu noktadan sonra Api üzerinde [https://localhost:44381/swagger/index.html] portunda inceleme yapabilirsiniz.MVC projesi bağlantısı için konsol üzerinden 'npm install' ve 'npm start' komutları girilmeli. 
+    Başlangıç projemizi **FinalProject.API** olarak belirledikten sonra package manager console’umuzda varsayılan olarak belirliyor 
+    ve **update-database** komutunu giriyoruz. Bu noktadan sonra Api üzerinde [https://localhost:44381/swagger/index.html] portunda 
+    inceleme yapabilirsiniz.MVC projesi bağlantısı için konsol üzerinden 'npm install' ve 'npm start' komutları girilmeli. 
  ```
  Son olarak belirlediğimiz kriteri sağlayan bir swagger delete komutu.
  ![](https://github.com/malikagan48/FinalProjectWArvatoBootcamp/blob/main/FinalProject/bin/Release/net6.0/Images/15.PNG)
@@ -52,8 +55,8 @@ Arvato Supply Chain Solutions ve Patika.dev iş birliği ile yapılan **Arvato .
     <td><img src="https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white"/></td>
   </tr>
   <tr>
-    <td><img src="https://img.shields.io/badge/-FluentValidation-CC2927?style=flat-square&logo=.net&logoColor=ffffff"/></td>
-    <td><img src="https://img.shields.io/badge/-AutoMapper-5C2D91?style=flat&logo=.net&logoColor=white"/</td>  
+   
+ 
     <td><img src="https://img.shields.io/badge/-IdentityCore-5C2D91?style=flat&logo=.net&logoColor=white"/></td>
     <td><img src="https://img.shields.io/badge/-Docker-61DAFB?logo=docker"/></td> 
   </tr>

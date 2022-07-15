@@ -9,13 +9,13 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
-
+//Postgresql yolumuzu belirledik.
 builder.Services.AddDbContext<ArvatoDbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("ArvatoDbContext")));
 
+//Oluþturduðumuz interfaceleri repositoryler ile eþleþtirdik.
 builder.Services.AddTransient<IMytable, MytableRepository>();
 builder.Services.AddTransient<IGenres, GenresRepository>();
-
 builder.Services.AddTransient<ITrendings, TrendingsRepository>();
 
 
@@ -25,6 +25,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Services.AddMvc();
+//Tokenýmýzýn tanýmlamasýný yaptýk.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.RequireHttpsMetadata = false;

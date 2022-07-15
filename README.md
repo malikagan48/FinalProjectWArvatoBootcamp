@@ -18,8 +18,11 @@ Arvato Supply Chain Solutions ve Patika.dev iş birliği ile yapılan **Arvato .
 
 
 **Çekilen verilerden örnek birkaç görsel**
+
 ![](https://github.com/malikagan48/FinalProjectWArvatoBootcamp/blob/main/FinalProject/bin/Release/net6.0/Images/12.PNG)
+
 <hr>
+
 ![](https://github.com/malikagan48/FinalProjectWArvatoBootcamp/blob/main/FinalProject/bin/Release/net6.0/Images/13.PNG)
 
 <hr>
@@ -35,9 +38,9 @@ Arvato Supply Chain Solutions ve Patika.dev iş birliği ile yapılan **Arvato .
     "DefaultConnection": "User ID=(DatabaseUserBuraya(postgres));Password=(ŞifreBuraya);Host=(HostIp veya 'localhost');Port=(PortNumarası(5432));Database=MiniCommerceDb;Integrated Security=true;Pooling=true"
   },
     Başlangıç projemizi **FinalProject.API** olarak belirledikten sonra package manager console’umuzda varsayılan olarak belirliyor ve **update-database** komutunu giriyoruz. Bu noktadan sonra Api üzerinde [https://localhost:44381/swagger/index.html] portunda inceleme yapabilirsiniz.MVC projesi bağlantısı için konsol üzerinden 'npm install' ve 'npm start' komutları girilmeli. 
-    
+ ```
  Son olarak belirlediğimiz kriteri sağlayan bir swagger delete komutu.
- https://github.com/malikagan48/FinalProjectWArvatoBootcamp/blob/main/FinalProject/bin/Release/net6.0/Images/15.PNG
+ ![](https://github.com/malikagan48/FinalProjectWArvatoBootcamp/blob/main/FinalProject/bin/Release/net6.0/Images/15.PNG)
       
 <h2> 🛠 &nbsp;Projemizde Kullanılan Teknolojiler</h2>
 

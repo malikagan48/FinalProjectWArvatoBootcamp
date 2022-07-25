@@ -45,27 +45,3 @@ Arvato Supply Chain Solutions ve Patika.dev iş birliği ile yapılan **Arvato .
  Son olarak belirlediğimiz kriteri sağlayan bir swagger delete komutu.
  ![](https://github.com/malikagan48/FinalProjectWArvatoBootcamp/blob/main/FinalProject/bin/Release/net6.0/Images/15.PNG)
       
-<h2> 🛠 &nbsp;Projemizde Kullanılan Teknolojiler</h2>
-
-<table style"float:right;">
-  <tr>
-    <td><img src="https://img.shields.io/badge/-ASP.NETCore-5C2D91?style=flat&logo=.net&logoColor=white"/></td>
-    <td><img src="https://img.shields.io/badge/-MVC-5C2D91?logo=.net"/></td>
-    <td><img src="https://img.shields.io/badge/-EntityFramework-5C2D91?style=flat&logo=.net&logoColor=white"/></td>  
-    <td><img src="https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://img.shields.io/badge/-Github-black?style=flat&logo=github"/></td>
-    <td> <img src="https://img.shields.io/badge/-Git-black?style=flat&logo=git"/></td>   
-    <td><img src="https://img.shields.io/badge/-JavaScript-black?style=flat&logo=javascript"/></td>
-    <td><img src="https://img.shields.io/badge/-npm-CB3837?logo=npm"/></td>
-  </tr>
-  <tr>
-    <td><img src="https://img.shields.io/badge/-Bootstrap-563D7C?style=flat&logo=bootstrap"/></td>
-    <td><img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white"></td>
- 		<td><img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3"/></td>
-    <td><img src="https://img.shields.io/badge/-json-02569B?style=flat&logo=json"/></td>
-  </tr>
-
-</table>
-

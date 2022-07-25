@@ -1,98 +1,133 @@
-﻿using FinalProject.Interface;
+﻿using FinalProject.Entities;
+using FinalProject.Interface;
 using FinalProject.Models;
+using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 namespace FinalProject.Repository
 {
-    public class GenresRepository:IGenres
+    public class GenresRepository : IGenres
     {
         readonly ArvatoDbContext _dbContext = new();
         public GenresRepository(ArvatoDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public List<Mytable> GetGenresDetails()
+        public void AddGenre(long movieId, Genres genre) //Add genre için gerekli olan parametreler
         {
-            try
+
+            var mytable = _dbContext.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
+            if (mytable != null)
             {
-                return _dbContext.Mytables.ToList();
-            }
-            catch
-            {
-                throw;
-            }
-        }
-        public Mytable GetGenresDetails(string Genres)
-        {
-            try
-            {
-                Mytable? mytable = _dbContext.Mytables.Find(Genres);
-                if (mytable != null)
+                List<Genres> genres = new List<Genres>();
+                if (string.IsNullOrWhiteSpace(mytable.Genres))
                 {
-                    return mytable;
+                    genres.Add(genre);
+                    var genreSerialize = JsonConvert.SerializeObject(genres);//mevcut json formatlı genres datasına sahip olduğumuz için Serilize işlemine ihtiyaç duyuyoruz.
+                    mytable.Genres = genreSerialize;
                 }
                 else
                 {
-                    throw new ArgumentNullException();
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
+                    var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                    if (temp != null)
+                    {
+                        temp.Add(genre);
+                        genres = temp;
+                    }
+                    var genreSerialize = JsonConvert.SerializeObject(genres);
+                    mytable.Genres = genreSerialize;
 
-        public void AddGenres(Mytable Genres)
-        {
-            try
-            {
-                _dbContext.Mytables.Add(Genres);
+                }
+
+                _dbContext.Update(mytable);
                 _dbContext.SaveChanges();
             }
-            catch
-            {
-                throw;
-            }
         }
 
-        public void UpdateGenres(Mytable Genres)
+        public void DeleteByMovieAllGenre(long movieId)
         {
-            try
+            var mytable = _dbContext.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
+            if (mytable != null)
             {
-                _dbContext.Entry(Genres).State = EntityState.Modified;
+                List<Genres> genres = new List<Genres>();
+
+                var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                if (temp != null && temp.Count > 0)
+                {
+                    temp.Clear();
+                    genres = temp;
+                }
+                var genreSerialize = JsonConvert.SerializeObject(genres);
+                mytable.Genres = genreSerialize;
+
+                _dbContext.Update(mytable);
                 _dbContext.SaveChanges();
             }
-            catch
+        }
+
+        public void DeleteGenre(long movieId, int genreId)
+        {
+            var mytable = _dbContext.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
+            if (mytable != null)
             {
-                throw;
+                List<Genres> genres = new List<Genres>();
+
+                var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                if (temp != null && temp.Count > 0)
+                {
+                    var tempGenre = temp.Find(x => x.Id == genreId);
+                    if (tempGenre != null)
+                    {
+                        temp.Remove(tempGenre);
+                    }
+                    genres = temp;
+                }
+                var genreSerialize = JsonConvert.SerializeObject(genres);
+                mytable.Genres = genreSerialize;
+
+                _dbContext.Update(mytable);
+                _dbContext.SaveChanges();
+            }
+        }
+        public List<Genres> ListGenres(long movieId)
+        {
+            var mytable = _dbContext.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
+            if (mytable != null && !string.IsNullOrWhiteSpace(mytable.Genres))
+            {
+                var genres = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                if (genres != null) return genres;
+                return new List<Genres>();
+            }
+            else
+            {
+                return new List<Genres>();
             }
         }
 
-        public Mytable DeleteGenres(string Genres)
+        public void UpdateGenre(long movieId, int genreId, Genres genre)
         {
-            try
+            var mytable = _dbContext.Mytables.Where(x => x.Id == movieId).FirstOrDefault();
+            if (mytable != null)
             {
-                Mytable? mytable = _dbContext.Mytables.Find(Genres);
+                List<Genres> genres = new List<Genres>();
 
-                if (mytable != null)
+                var temp = JsonConvert.DeserializeObject<List<Genres>>(mytable.Genres);
+                if (temp != null && temp.Count > 0)
                 {
-                    _dbContext.Mytables.Remove(mytable);
-                    _dbContext.SaveChanges();
-                    return mytable;
+                    var tempGenre = temp.Find(x => x.Id == genreId);
+                    if (tempGenre != null)
+                    {
+                        tempGenre.Name = genre.Name;
+                        int index = temp.IndexOf(tempGenre);
+                        if (index > -1) temp[index] = genre;
+                    }
+                    genres = temp;
                 }
-                else
-                {
-                    throw new ArgumentNullException();
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
+                var genreSerialize = JsonConvert.SerializeObject(genres);
+                mytable.Genres = genreSerialize;
 
-        public bool CheckGenres(string Genres)
-        {
-            return _dbContext.Mytables.Any(e => e.Genres == Genres);
+                _dbContext.Update(mytable);
+                _dbContext.SaveChanges();
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FinalProject.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -27,7 +28,7 @@ namespace FinalProject.Models
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseNpgsql(@"Host=localhost;Database=ArvatoDb;Username=postgres;Password=1234");
+                optionsBuilder.UseNpgsql("Host=localhost;Database=ArvatoDb;Username=postgres;Password=1234");
             }
         }
 

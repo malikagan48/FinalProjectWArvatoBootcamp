@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using FinalProject.Models;
-using FinalProject.Interface;
+﻿using FinalProject.Interface;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using FinalProject.Entities;
+
 namespace FinalProject.Controllers
 {
     [Authorize]
@@ -16,20 +15,17 @@ namespace FinalProject.Controllers
         {
             _ITrendings = ITrendings;
         }
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Mytable>>> Get()
+        [HttpGet("ListMostViewedMovies")]
+        public List<Mytable> ListMostViewedMovies() 
         {
-            return await Task.FromResult(_ITrendings.GetTrendingDetails());
+            return _ITrendings.ListMostViewedMovies();
         }
-        [HttpGet("{Trendings}")]
-        public async Task<ActionResult<Mytable>> Get(string Popularity)
+
+        // GET api/<TrendingController>
+        [HttpGet("ListTopRatedMovies")]
+        public List<Mytable> ListTopRatedMovies()
         {
-            var mytable = await Task.FromResult(_ITrendings.GetTrendingDetails(Popularity));
-            if (mytable == null)
-            {
-                return NotFound();
-            }
-            return mytable;
+            return _ITrendings.ListTopRatedMovies();
         }
     }
 }

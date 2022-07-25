@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
-using FinalProject.Models;
 using FinalProject.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using FinalProject.Entities;
 
 namespace FinalProject.Controllers
 {
@@ -18,66 +18,31 @@ namespace FinalProject.Controllers
             _IGenres = IGenres;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Mytable>>> Get()
+        [AllowAnonymous]
+        public List<Genres> ListGenres(long movieId)
         {
-            return await Task.FromResult(_IGenres.GetGenresDetails());
+            return _IGenres.ListGenres(movieId);
         }
-        [HttpGet("{Genres}")]
-        public async Task<ActionResult<Mytable>> Get(string Genres)
-        {
-            var mytable = await Task.FromResult(_IGenres.GetGenresDetails(Genres));
-            if (mytable == null)
-            {
-                return NotFound();
-            }
-            return mytable;
-        }
-
         [HttpPost]
-        public async Task<ActionResult<Mytable>> Post(Mytable mytable)
+        public void AddGenre(long movieId, [FromBody] Genres genre) 
         {
-            _IGenres.AddGenres(mytable);
-            return await Task.FromResult(mytable);
+            _IGenres.AddGenre(movieId, genre);
+
         }
 
-        // PUT api/employee/5
-        [HttpPut("{Genres}")]
-        public async Task<ActionResult<Mytable>> Put(string Genres, Mytable mytable)
+        // PUT api/<GenresController>/5
+        [HttpPut("{movieId}")]
+        public void UpdateGenre(long movieId, int genreId, [FromBody] Genres genre) 
         {
-            if (Genres != mytable.Genres)
-            {
-                return BadRequest();
-            }
-            try
-            {
-                _IGenres.UpdateGenres(mytable);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EmployeeExists(Genres))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return await Task.FromResult(mytable);
+            _IGenres.UpdateGenre(movieId, genreId, genre);
+
         }
 
-        // DELETE api/employee/5
-        [HttpDelete("{Genres}")]
-        public async Task<ActionResult<Mytable>> Delete(string Genres)
+        // DELETE api/<GenresController>/5
+        [HttpDelete("{movieId}")] 
+        public void DeleteGenre(long movieId, int genreId)
         {
-            var mytable = _IGenres.DeleteGenres(Genres);
-            return await Task.FromResult(mytable);
+            _IGenres.DeleteGenre(movieId, genreId);
         }
-        [HttpHead]
-        private bool EmployeeExists(string Genres)
-        {
-            return _IGenres.CheckGenres(Genres);
-        }
-
     }
 }

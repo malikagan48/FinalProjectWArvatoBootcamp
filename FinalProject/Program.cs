@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
@@ -14,7 +14,7 @@ builder.Services.AddDbContext<ArvatoDbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("ArvatoDbContext")));
 
 //Oluþturduðumuz interfaceleri repositoryler ile eþleþtirdik.
-builder.Services.AddTransient<IMytable, MytableRepository>();
+builder.Services.AddTransient<IMovies, MoviesRepository>();
 builder.Services.AddTransient<IGenres, GenresRepository>();
 builder.Services.AddTransient<ITrendings, TrendingsRepository>();
 
@@ -22,7 +22,34 @@ builder.Services.AddTransient<ITrendings, TrendingsRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(
+    opt => // Swagger Configuration
+    {
+        opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MaliKagan-Arvato ASP.NET Bootcamp Graduation", Version = "v1" });
+        opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            In = ParameterLocation.Header,
+            Description = "Please enter token",
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            BearerFormat = "JWT",
+            Scheme = "bearer"
+        });
+        opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
+    });
 builder.Services.AddHttpClient();
 builder.Services.AddMvc();
 //Tokenýmýzýn tanýmlamasýný yaptýk.
@@ -49,7 +76,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(); 
 }
-app.UseDeveloperExceptionPage();
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

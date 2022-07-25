@@ -1,4 +1,5 @@
-﻿using FinalProject.Interface;
+﻿using FinalProject.Entities;
+using FinalProject.Interface;
 using FinalProject.Models;
 using Microsoft.EntityFrameworkCore;
 namespace FinalProject.Repository
@@ -10,35 +11,16 @@ namespace FinalProject.Repository
         {
             _dbContext = dbContext;
         }
-        public List<Mytable> GetTrendingDetails()
+        public List<Mytable> ListMostViewedMovies()
         {
-            try
-            {
-                return _dbContext.Mytables.ToList();
-            }
-            catch
-            {
-                throw;
-            }
+            List<Mytable> movie = _dbContext.Mytables.OrderByDescending(x => x.Popularity).Take(100).ToList();
+            return movie;
         }
-        public Mytable GetTrendingDetails(string Popularity)
+
+        public List<Mytable> ListTopRatedMovies()
         {
-            try
-            {
-                Mytable? mytable = _dbContext.Mytables.Find(Popularity);
-                if (mytable != null)
-                {
-                    return mytable;
-                }
-                else
-                {
-                    throw new ArgumentNullException();
-                }
-            }
-            catch
-            {
-                throw;
-            }
+            List<Mytable> movie = _dbContext.Mytables.OrderByDescending(x => x.VoteAverage).Take(100).ToList();
+            return movie;
         }
 
     }

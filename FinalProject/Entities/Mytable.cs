@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace FinalProject.Models
+namespace FinalProject.Entities
 {
     public partial class Mytable
     {
         public string Adult { get; set; } = null!;
         public string? BelongsToCollection { get; set; }
         public string Budget { get; set; } = null!;
-        public string Genres { get; set; } = null!;
+        public string Genres { get; set; } = "[]";
         public string? Homepage { get; set; }
         [Key]
         public int Id { get; set; }
@@ -19,12 +19,12 @@ namespace FinalProject.Models
         public string? Overview { get; set; }
         public string? Popularity { get; set; }
         public string? PosterPath { get; set; }
-        public string? ProductionCompanies { get; set; }
-        public string? ProductionCountries { get; set; }
+        public string? ProductionCompanies { get; set; } = "[]";
+        public string? ProductionCountries { get; set; } = "[]";
         public string? ReleaseDate { get; set; }
         public int? Revenue { get; set; }
         public decimal? Runtime { get; set; }
-        public string? SpokenLanguages { get; set; }
+        public string? SpokenLanguages { get; set; } = "[]";
         public string? Status { get; set; }
         public string? Tagline { get; set; }
         public string? Title { get; set; }

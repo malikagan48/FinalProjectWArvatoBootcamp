@@ -1,9 +1,10 @@
-﻿using FinalProject.Models;
+﻿using FinalProject.Entities;
+
 namespace FinalProject.Interface
 {
     public interface ITrendings
     {
-        public List<Mytable> GetTrendingDetails();
-        public Mytable GetTrendingDetails(string Popularity);
+        List<Mytable> ListMostViewedMovies();
+        List<Mytable> ListTopRatedMovies();
     }
 }

@@ -7,6 +7,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
+using FinalProject.Entities;
+
 namespace FinalProject.Controllers
 {
     [Route("api/[controller]")]
